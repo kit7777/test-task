@@ -1,10 +1,11 @@
 #include <iostream>
+#include <thread>
 #include "../include/Journal.h"
 #include "../include/Message.h"
 #include "../include/consApp.h"
 
 int main(int argc, char* argv[]) {
-    std::string nameFile = "newJournal";
+    std::string nameFile = "newJournal";//переменные для создания журнала
     Levels level = informational;
     if(argc != 3) { //провека на количество параметров
         showHelp();
@@ -14,8 +15,8 @@ int main(int argc, char* argv[]) {
         showHelp();
         return 0;
     }
-    Journal newJournal(nameFile, level);
-    std::string textMessage = "-";
+    Journal newJournal(nameFile, level);//создается журнал
+    std::string textMessage = "-";//переменные для создания сообщения
     Levels levelMessage = informational;
     bool Exit = false;
     std::string cmd = "exit";
@@ -23,12 +24,11 @@ int main(int argc, char* argv[]) {
         menu();
         std::getline(std::cin, cmd);
         if(cmd == "add") {
-            createMessage(textMessage, levelMessage);            
+            createMessage(textMessage, levelMessage);//изменяются значения переменных для сообщ.
+            std::thread message([&](){newJournal.addMessage(textMessage, levelMessage);});
+            message.detach();//метод добавления сообщения в журнал в отдельный поток             
         }
         if(cmd == "exit") Exit = true;
     }
-    std::cout << "Text: "<<textMessage<<'\n'<<"level: "<<levelMessage<<'\n';
-
-    
 
 }

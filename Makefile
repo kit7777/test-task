@@ -23,6 +23,6 @@ $(LIB): $(OBJECTS_LIB)
 clean: 
 	rm  -rf ./source/main.o ./source/Journal.o ./source/Message.o .source/consApp.o 
 run:
-	./main.out
+	./main.out NewJournal.txt 2
 
  
