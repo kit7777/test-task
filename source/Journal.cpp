@@ -22,7 +22,7 @@ void Journal::addM(Message mess) {
     temptime = std::ctime(&time);
     temptime.pop_back();
     std::ofstream out(filename, std::ios::app|std::ios::ate);
-    out <<mess.getLevel()<<' '<<temptime<<' '<<mess.getText()<<'\n';
+    out <<mess.getLevel()<<'\t'<<temptime<<'\t'<<mess.getText()<<'\n';
     out.close();
     }
 }

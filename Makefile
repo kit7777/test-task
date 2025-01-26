@@ -21,7 +21,7 @@ $(LIB): $(OBJECTS_LIB)
 
 .PHONY: clean
 clean: 
-	rm  -rf ./source/main.o ./source/Journal.o ./source/Message.o .source/consApp.o 
+	rm  -rf ./source/main.o ./source/Journal.o ./source/Message.o ./source/consApp.o 
 run:
 	./main.out NewJournal.txt 2
 
