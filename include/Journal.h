@@ -3,14 +3,17 @@
 #include <cstring>
 #include <chrono>
 #include <ctime>
+#include <mutex>
 #include "Levels.h"
 #include "Message.h"
+#pragma once
 
 //Class Journal
 class Journal {
     std::string filename;
     Levels def_message_level;
-public:    
+    std::mutex m;
+  
     void addM(Message mess);
 public:
     Journal () = delete;

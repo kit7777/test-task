@@ -1,7 +1,7 @@
 CC=g++ 
 CFLAGS=-c -Wall -std=c++17
 LDFLAGS=
-SOURCES_APP=source/main.cpp
+SOURCES_APP=source/main.cpp source/consApp.cpp
 SOURCES_LIB=source/Journal.cpp source/Message.cpp
 LIB=buildLib
 EXECUTABLE=main
@@ -21,7 +21,8 @@ $(LIB): $(OBJECTS_LIB)
 
 .PHONY: clean
 clean: 
-	rm  -rf /source *.o app
-
+	rm  -rf ./source/main.o ./source/Journal.o ./source/Message.o .source/consApp.o 
+run:
+	./main.out
 
  
