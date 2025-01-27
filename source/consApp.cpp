@@ -63,3 +63,4 @@ bool correctNameFile(const char* str, std::string& name) {
     name = str;
     return true;
 }
+

@@ -5,7 +5,7 @@
 
 std::string correctInputString();
 int correctInputInt(); 
-void addMessage(Journal& journal, std::string& text, Levels& level);
+
 
 Levels intToLevel(int num);
 

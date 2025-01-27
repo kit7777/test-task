@@ -4,13 +4,13 @@
 
 //конструктор от текста и уровня
 Message::Message(std::string text, Levels level):text(text), message_level(level) {
-    time = std::chrono::system_clock::to_time_t(t);
+    now = time(0);
 }
 
 //конструктор просто от текста
 Message::Message(std::string text):text(text) {
     message_level = informational;
-    time = std::chrono::system_clock::to_time_t(t);
+    now = time(0);
 }
 
 //методы возвращающие поля
@@ -23,5 +23,5 @@ Levels Message::getLevel() {
 }
 
 std::time_t Message::getTime() {
-    return time;
+    return now;
 }

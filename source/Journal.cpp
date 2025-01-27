@@ -18,8 +18,8 @@ Journal::Journal(std::string filename, Levels level):filename(filename), def_mes
 void Journal::addM(Message mess) { 
     if(mess.getLevel()<=def_message_level) {//проверка уровня при записи сообщений
     std::string temptime = "time";
-    std::time_t time = mess.getTime();
-    temptime = std::ctime(&time);
+    std::time_t now = mess.getTime();
+    temptime  = ctime(&now);
     temptime.pop_back();
     std::ofstream out(filename, std::ios::app|std::ios::ate);
     out <<mess.getLevel()<<'\t'<<temptime<<'\t'<<mess.getText()<<'\n';
@@ -34,7 +34,7 @@ void Journal::defLevel(Levels level) {
 //публичный метод для создания сообщения и добавления его в журнал
 void Journal::addMessage(std::string text, Levels level) {
     std::lock_guard<std::mutex> g(m);
-    Message m(text, level);
+    Message m(text, level);  
     addM(m);
 }
 //здесь создание сообщения без указания уровня

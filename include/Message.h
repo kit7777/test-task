@@ -11,7 +11,8 @@
 class Message {
     std::string text;
     Levels message_level;
-    std::time_t time;
+    std::time_t now;
+        
 
 public:
     Message() = delete;//запрещен, так как запись без текста, кажется бессмысленной
